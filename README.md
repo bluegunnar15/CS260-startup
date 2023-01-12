@@ -5,6 +5,8 @@ POV Opinions:
 
 POV Opinions is a forum like website where users can post and debate light hearted controversial questions from their points of view. Some of these types of questions include: Is water wet? Dark or milk chocolate? Peel or bite string cheese? The list of questions grows as more users add their own questions. 
 
+![alt text](https://github.com/bluegunnar15/CS260-startup/blob/3ae3f62ee506f480796333195f5fcd4487e59afd/images/POV_Opinions.png)
+
 The website consists of a list of questions posted by various users. Upon clicking on a question you can read the authors question, their own opinion, other users comments, and there is even an opinion to vote with the overall results being shown.
 
 Key Features:
