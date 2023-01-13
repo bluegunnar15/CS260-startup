@@ -8,6 +8,7 @@ IP address to website: http://13.59.126.80
 Cool terminal commands:
    * dig amazon.com <- gets IP address associated with domain 
    * whois byu.edu <- gets information about a domain name from the domain name
+   * traceroute byu.edu <- the path my computer takes to connect to byu.edu
 
 The Pitch
 POV Opinions:
