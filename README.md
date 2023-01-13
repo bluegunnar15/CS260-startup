@@ -4,6 +4,10 @@ startup project for cs260
 HTML Notes:
   * div <- new line
   * span <- continue on the line
+  * nav <- navigation, can put organize vertically or horizontally using div or span
+  * ul <- unordered list
+  * li <- list
+  * table <- table with <tr>, rows, and <th>, cells
 
 
 Website(updated for https): https://dumbquestions.click
