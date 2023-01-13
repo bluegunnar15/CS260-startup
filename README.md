@@ -1,6 +1,11 @@
 # CS260-startup
 startup project for cs260
 
+HTML Notes:
+  * div <- new line
+  * span <- continue on the line
+
+
 Website(updated for https): https://dumbquestions.click
 
 IP address to website: http://13.59.126.80
