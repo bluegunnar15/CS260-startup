@@ -1,7 +1,7 @@
 # CS260-startup
 startup project for cs260
 
-Website: http://dumbquestions.click
+Website(updated for https): https://dumbquestions.click
 
 IP address to website: http://13.59.126.80
 
