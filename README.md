@@ -1,6 +1,9 @@
 # CS260-startup
 startup project for cs260
 
+Link to website: https://13.59.126.80
+
+The Pitch
 POV Opinions:
 
 POV Opinions is a forum like website where users can post and debate light hearted controversial questions from their points of view. Some of these types of questions include: Is water wet? Dark or milk chocolate? Peel or bite string cheese? The list of questions grows as more users add their own questions. 
