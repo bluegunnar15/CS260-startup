@@ -1,7 +1,7 @@
 # CS260-startup
 startup project for cs260
 
-Link to website: https://13.59.126.80
+Link to website: http://13.59.126.80
 
 The Pitch
 POV Opinions:
