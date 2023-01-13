@@ -8,7 +8,10 @@ HTML Notes:
   * ul <- unordered list
   * li <- list
   * table <- table with tr as rows, and th as cells
-
+  * alt <- "alternative text"
+  * img <- image
+  * svg <- "scalable vector graphics" allows to create images within html
+  * canvas <- similiar to svg, allows image creation in html but requres Javacript
 
 Website(updated for https): https://dumbquestions.click
 
