@@ -7,7 +7,7 @@ HTML Notes:
   * nav <- navigation, can put organize vertically or horizontally using div or span
   * ul <- unordered list
   * li <- list
-  * table <- table with "<tr>", rows, and "<th>", cells
+  * table <- table with tr as rows, and th as cells
 
 
 Website(updated for https): https://dumbquestions.click
