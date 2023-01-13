@@ -8,7 +8,6 @@ IP address to website: http://13.59.126.80
 Cool terminal commands:
    * dig amazon.com <- gets IP address associated with domain 
    * whois byu.edu <- gets information about a domain name from the domain name
-   * 
 
 The Pitch
 POV Opinions:
