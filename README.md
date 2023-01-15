@@ -1,6 +1,9 @@
 # CS260-startup
 startup project for cs260
 
+CSS Notes:
+  * padding-left: 1em; <- How to indent
+
 WHat I learned from Simon HTML: I did not know that you could do pre extensions to links. Not sure if that makes sense but for example, I did not know that https://simon.dumbquestions.click could be a valid link. 
 
 HTML Notes:
