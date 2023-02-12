@@ -1,6 +1,12 @@
 # CS260-startup
 startup project for cs260
 
+Notes from css simon:
+  * "text-align:center;" <- centers text
+  * <main class="container-fluid bg-secondary text-center"> <- means background secondary color, text center.
+        You can add certain characteristics to the class name. 
+
+
 CSS Notes:
   * padding-left: 1em; <- How to indent
 
