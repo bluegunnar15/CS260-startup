@@ -12,6 +12,23 @@ body {
     flex-direction: column;
 }
 
+#parentVote {
+    border: 1px solid black;
+    margin: 1rem;
+    padding: 2rem 2rem;
+    text-align: center;
+}
+
+#childVoteButton {
+    display: inline-block;
+    border: 1px solid black;
+
+    height: 5rem;
+    width: 10rem;
+    text-align: center;
+    padding: 2rem;
+}
+
 footer {
     margin-bottom: 2rem;
     margin-top: auto;
@@ -31,8 +48,15 @@ footer {
 .discussionBoard {
 
     flex: 1;
-    padding: 10px;
+
     text-align: center;
+}
+
+
+
+#indentedParagraph {
+    padding: 1em;
+    padding-left: 2em;
 }
 
 

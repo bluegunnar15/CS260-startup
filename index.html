@@ -49,20 +49,30 @@
 
     <main class="container-fluid">
         <div id="discussionBoard" class="demo-box">
-            <h1>The Opinion</h1>
-            <div>Is pizza better cold or microwaved? Is pizza better cold or microwaved? Is pizza better cold or
-                microwaved? Is pizza better cold or microwaved? Is pizza better cold or microwaved? Is pizza better cold
-                or microwaved? Is pizza better cold or microwaved? Is pizza better cold or microwaved?</div>
+            <h1 id="discussionHeader">The Opinion</h1>
+            <div id="indentedParagraph">Is pizza better cold or microwaved? Is pizza better cold or microwaved? Is pizza
+                better cold or microwaved? Is pizza better cold or microwaved? Is pizza better cold or microwaved? Is
+                pizza better cold or microwaved? Is pizza better cold or microwaved? Is pizza better cold or microwaved?
+            </div>
+            <h1 id="discussionHeader">Please Vote</h1>
+
+            <div id="parentVote">
+                <button id="childVoteButton" type="button" class="btn btn-primary">Agree</button>
+                <button id="childVoteButton" type="button" class="btn btn-primary">Disagree</button>
+            </div>
 
         </div>
 
         <div id="sidebar" class="demo-box">
             <h2 style="text-align: center;">Comments</h2>
-            <button type="button" class="btn btn-primary">Primary</button>
-            <button type="button" class="btn btn-primary">Danger</button>
-            <button type="button" class="btn btn-primary">Outline</button>
-            <button type="button" class="btn btn-primary" data-bs-toggle="button">Toggle button</button>
 
+            <div id="commentBoard">
+                <div id="comment" class="demo-box">Test comment</div>
+                <div id="comment" class="demo-box">Test comment</div>
+                <div id="comment" class="demo-box">Test comment</div>
+                <div id="comment" class="demo-box">Test comment</div>
+
+            </div>
         </div>
 
     </main>
