@@ -6,6 +6,43 @@ html {
     margin: 2rem;
 }
 
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    margin-bottom: 2rem;
+    margin-top: auto;
+}
+
+.main {
+    background-color: dodgerblue;
+    width: 100%;
+}
+
+.container-fluid {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.discussionBoard {
+
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+}
+
+
+.sidebar {
+
+    flex: 3;
+    padding: 10px;
+    text-align: center;
+
+}
 
 .demo-box {
     margin: 1rem;
