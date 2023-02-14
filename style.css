@@ -31,6 +31,16 @@ body {
     border: 1px solid black;
 }
 
+#parentResults {
+    align-items: center;
+}
+
+#futurePieChart {
+    width: 250px;
+    margin-left: 20px;
+
+}
+
 footer {
     margin-bottom: 2rem;
     margin-top: auto;
