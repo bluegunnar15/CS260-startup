@@ -13,6 +13,7 @@ body {
 }
 
 #parentVote {
+    width: 98%;
     border: 1px solid black;
     margin: 1rem;
     padding: 2rem 2rem;
@@ -32,12 +33,41 @@ body {
 }
 
 #parentResults {
-    align-items: center;
+    width: 98%;
+    border: 1px solid black;
+    margin: 1rem;
+    padding: 2rem 2rem;
+
+    text-align: center;
 }
 
 #futurePieChart {
-    width: 250px;
-    margin-left: 20px;
+    height: 100px;
+    margin: 0 auto;
+    padding: 0;
+    display: table-cell;
+    vertical-align: middle;
+
+    border: 1px solid black;
+
+}
+
+#bottomNav {
+    width: 98%;
+
+    margin: 1rem;
+    padding: 2rem 2rem;
+    text-align: center;
+}
+
+#navButton {
+
+    padding-left: 4rem;
+    padding-right: 4rem;
+    width: 25%;
+    height: 110px;
+    font-size: xx-large;
+    color: black;
 
 }
 
