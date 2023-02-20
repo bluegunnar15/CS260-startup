@@ -15,7 +15,7 @@
 
 <body class="main">
     <header class="sticky-top">
-        <nav class="navbar navbar-expand-lg bg-light">
+        <nav class="navbar navbar-expand-lg" style="background-color: dodgerblue;">
             <div class="container-fluid">
                 <a class="navbar-brand" href="https://getbootstrap.com/">
                     <h1>Dumb Opinions</h1>
@@ -30,19 +30,15 @@
                             <a class="nav-link" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#btn">Button</a>
+                            <a class="nav-link" href="#card">Popular</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#card">Card</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#typography">Typography</a>
+                            <a class="nav-link" href="#btn">New Post</a>
                         </li>
                     </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search"
-                            class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
+                    <div style="font-size: x-large;">
+                        <a class="nav-link" href="#btn">Steve Jones</a>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -50,12 +46,13 @@
 
     <main class="container-fluid">
         <div id="discussionBoard" class="demo-box">
-            <h1 id="discussionHeader">The Opinion</h1>
-            <div id="indentedParagraph">Is pizza better cold or microwaved? Is pizza better cold or microwaved? Is pizza
-                better cold or microwaved? Is pizza better cold or microwaved? Is pizza better cold or microwaved? Is
-                pizza better cold or microwaved? Is pizza better cold or microwaved? Is pizza better cold or microwaved?
+            <h1 id="discussionHeader" style="font-weight: bold;">The Opinion</h1>
+            <div id="indentedParagraph" style="font-size: xx-large;">Let’s imagine you have left over pizza in the
+                refrigerator. You get hungry,
+                do you either eat the pizza cold or warm it up in the microwave? I argue that it tastes better to eat
+                it cold. When you microwave the pizza, it becomes all floppy and nasty.
             </div>
-            <h1 id="discussionHeader">Please Vote</h1>
+            <h1 id="discussionHeader" style="font-weight: bold;">Please Vote</h1>
 
             <div id="parentVote">
                 <button id="childVoteButton" style="margin-right: 20px;" type="button"
@@ -64,7 +61,7 @@
                     class="btn btn-primary">Disagree</button>
             </div>
 
-            <h1>Voting Results</h1>
+            <h1 style="font-weight: bold;">Voting Results</h1>
             <div id="parentResults" style="display: inline-block;">
                 <button id="futurePieChart" style="margin-left: 20px;" type="button" class="btn btn-danger">This will
                     be a chart, when Javascript is done</button>
@@ -75,18 +72,26 @@
         </div>
 
         <div id="sidebar" class="demo-box">
-            <h2 style="text-align: center;">Comments</h2>
+            <h2 style="text-align: center; font-weight: bold;">Comments</h2>
 
             <div id="commentBoard">
                 <div id="comment" class="demo-box">Test comment</div>
                 <div id="comment" class="demo-box">Test comment</div>
                 <div id="comment" class="demo-box">Test comment</div>
                 <div id="comment" class="demo-box">Test comment</div>
+                <div id="comment" class="demo-box">Test comment</div>
+                <div id="comment" class="demo-box">Test comment</div>
 
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" class="btn btn-outline-success"
-                        type="submit">Search</button>
-                </form>
+                <div class="card-footer" id="Tmp">
+                    <div class="d-flex flex-start w-100">
+                        <div class="form-outline w-100">
+                            <textarea class="form-control" id="textAreaExample" rows="2">Type a Reply</textarea>
+                        </div>
+                    </div>
+                    <div id="postComment">
+                        <button type="button" class="btn btn-primary btn-sm">Post comment</button>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -103,10 +108,10 @@
 
     </test>
 
-    <footer class="sticky-bottom">
-        <nav class="navbar bg-light">
-            <div class="container-fluid ">
-                <p class="text-muted">&copy; 2023 - Web Programming 260-StartUp Project</p>
+    <footer class="sticky-bottom" style="background-color: dodgerblue; color:black;">
+        <nav class="navbar">
+            <div class="container-fluid">
+                <p style="color:black;">&copy; 2023 - Web Programming 260-StartUp Project</p>
             </div>
     </footer>
 

@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+
 }
 
 html {
@@ -10,6 +11,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+
 }
 
 #parentVote {
@@ -58,6 +60,7 @@ body {
     margin: 1rem;
     padding: 2rem 2rem;
     text-align: center;
+
 }
 
 #navButton {
@@ -69,15 +72,22 @@ body {
     font-size: xx-large;
     color: black;
 
+
+}
+
+#postComment {
+    padding: .75em;
+    text-align: center;
 }
 
 footer {
     margin-bottom: 2rem;
     margin-top: auto;
+
 }
 
 .main {
-    background-color: dodgerblue;
+    background-color: white;
     width: 100%;
 }
 
@@ -92,6 +102,8 @@ footer {
     flex: 1;
 
     text-align: center;
+
+
 }
 
 
