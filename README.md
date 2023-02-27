@@ -1,6 +1,13 @@
 # CS260-startup
 startup project for cs260
 
+DOM:
+ * let banner = document.getElementById('element-id) <- gets element by id and saves it to banner
+ * document.getElementByClassName('class name') <- gets element by class name
+ * document.getElementByTagName('Tag name') <- gets element by Tag name
+ * document.querySelector('#name') <- only returns one, the first one it finds
+ * document.querySelectorAll('#name') <- returns all elements found in the document 
+ 
 Notes from css simon:
   * "text-align:center;" <- centers text
   * <main class="container-fluid bg-secondary text-center"> <- means background secondary color, text center.
