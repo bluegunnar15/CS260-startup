@@ -1,6 +1,8 @@
 # CS260-startup
 startup project for cs260
 
+JS notes from simon: Make sure that the ids match up!! 
+
 DOM:
  * let banner = document.getElementById('element-id) <- gets element by id and saves it to banner
  * document.getElementByClassName('class name') <- gets element by class name
