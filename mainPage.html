@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<link rel="stylesheet" href="style.css" />
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/5.1/assets/css/docs.css" rel="stylesheet">
+
+</head>
+
+<body class="main">
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg" style="background-color: dodgerblue;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="https://getbootstrap.com/">
+                    <h1>Dumb Opinions</h1>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#card">Popular</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#btn">New Post</a>
+                        </li>
+                    </ul>
+                    <div style="font-size: x-large;">
+                        <span class="player-name">Mystery User</span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container-fluid">
+        <div id="discussionBoard" class="demo-box">
+            <h1 id="discussionHeader" style="font-weight: bold;">The Opinion</h1>
+            <div id="indentedParagraph" style="font-size: xx-large;">Let’s imagine you have left over pizza in the
+                refrigerator. You get hungry,
+                do you either eat the pizza cold or warm it up in the microwave? I argue that it tastes better to eat
+                it cold. When you microwave the pizza, it becomes all floppy and nasty.
+            </div>
+            <h1 id="discussionHeader" style="font-weight: bold;">Please Vote</h1>
+
+            <div id="parentVote">
+                <button id="childVoteButton" style="margin-right: 20px;" type="button"
+                    class="btn btn-primary">Agree</button>
+                <button id="childVoteButton" style="margin-left: 20px;" type="button"
+                    class="btn btn-primary">Disagree</button>
+            </div>
+
+            <h1 style="font-weight: bold;">Voting Results</h1>
+            <div id="parentResults" style="display: inline-block;">
+                <button id="futurePieChart" style="margin-left: 20px;" type="button" class="btn btn-danger">This will
+                    be a chart, when Javascript is done</button>
+
+            </div>
+
+
+        </div>
+
+        <div id="sidebar" class="demo-box">
+            <h2 style="text-align: center; font-weight: bold;">Comments</h2>
+
+            <div id="commentBoard">
+                <div id="comment" class="demo-box">Test comment</div>
+                <div id="comment" class="demo-box">Test comment</div>
+                <div id="comment" class="demo-box">Test comment</div>
+                <div id="comment" class="demo-box">Test comment</div>
+                <div id="comment" class="demo-box">Test comment</div>
+                <div id="comment" class="demo-box">Test comment</div>
+
+                <div class="card-footer" id="Tmp">
+                    <div class="d-flex flex-start w-100">
+                        <div class="form-outline w-100">
+                            <textarea class="form-control" id="textAreaExample" rows="2">Type a Reply</textarea>
+                        </div>
+                    </div>
+                    <div id="postComment">
+                        <button type="button" class="btn btn-primary btn-sm">Post comment</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <test>
+        <div id="bottomNav">
+            <button id="navButton" style="margin-right: 20px;" type="button" class="btn btn-success">&lt- Last
+                Page</button>
+            <button id="navButton" style="margin-left: 20px;" type="button" class="btn btn-success">Next Page
+                -&gt</button>
+        </div>
+
+    </test>
+
+    <footer class="sticky-bottom" style="background-color: dodgerblue; color:black;">
+        <nav class="navbar">
+            <div class="container-fluid">
+                <p style="color:black;">&copy; 2023 - Web Programming 260-StartUp Project</p>
+            </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+
+    <script src="mainPage.js"></script>
+</body>
+
+</html>
