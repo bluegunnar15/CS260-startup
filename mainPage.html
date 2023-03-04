@@ -5,6 +5,7 @@
 <html>
 
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
@@ -48,10 +49,7 @@
     <main class="container-fluid">
         <div id="discussionBoard" class="demo-box">
             <h1 id="discussionHeader" style="font-weight: bold;">The Opinion</h1>
-            <div id="indentedParagraph" style="font-size: xx-large;">Let’s imagine you have left over pizza in the
-                refrigerator. You get hungry,
-                do you either eat the pizza cold or warm it up in the microwave? I argue that it tastes better to eat
-                it cold. When you microwave the pizza, it becomes all floppy and nasty.
+            <div class="question-name" id="indentedParagraph" style="font-size: xx-large;">Default Question.
             </div>
             <h1 id="discussionHeader" style="font-weight: bold;">Please Vote</h1>
 
@@ -64,9 +62,7 @@
 
             <h1 style="font-weight: bold;">Voting Results</h1>
             <div id="parentResults" style="display: inline-block;">
-                <button id="futurePieChart" style="margin-left: 20px;" type="button" class="btn btn-danger">This will
-                    be a chart, when Javascript is done</button>
-
+                <canvas id="pie-chart" width="250" height="100"></canvas>
             </div>
 
 
@@ -115,6 +111,8 @@
                 <p style="color:black;">&copy; 2023 - Web Programming 260-StartUp Project</p>
             </div>
     </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
