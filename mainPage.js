@@ -6,7 +6,7 @@ class Question {
         this.question = question;
 
         //This will pool the database
-        this.comments = [];
+        this.comments = this.getComments;
         this.numUpVotes = 8;
         this.numDownVotes = 6;
         this.numUnsureVotes = 1;
@@ -16,6 +16,29 @@ class Question {
         questionNameElement.textContent = this.question;
 
         this.chart = this.createChart();
+
+        var cars = ["Saab", "Volvo", "BMW"];
+        cars.forEach((item, index) => {
+
+
+            const boxes = document.getElementsByClassName('name');
+            console.log(boxes); // 👉️ [div.box, div.box, div.box]
+
+            const child = document.createElement('div');
+            child.innerHTML = `<h1>' + item + '</h1>`;
+
+            // ✅ Works
+            boxes[0].appendChild(child);
+        })
+    }
+
+    getComments() {
+        tmpComments = [];
+        for (let i = 0; i < 5; i++) {
+            tmpComments.push("Fake Comment " + i);
+        }
+
+        return tmpComments;
     }
 
     createChart() {
