@@ -136,6 +136,9 @@ class PageInformation {
     constructor() {
         const playerNameEl = document.querySelector('.player-name');
         playerNameEl.textContent = this.getPlayerName();
+
+        this.allQuestions = [];
+        this.allQuestions[0] = new Question("Blah");
     }
 
     getPlayerName() {
@@ -144,5 +147,6 @@ class PageInformation {
 }
 
 
+
 const page = new PageInformation();
-const question = new Question("Test:: Let’s imagine you have left over pizza in the refrigerator. You get hungry, do you either eat the pizza cold or warm it up in the microwave? I argue that it tastes better to eat it cold. When you microwave the pizza, it becomes all floppy and nasty.");
+//const question = new Question("Test:: Let’s imagine you have left over pizza in the refrigerator. You get hungry, do you either eat the pizza cold or warm it up in the microwave? I argue that it tastes better to eat it cold. When you microwave the pizza, it becomes all floppy and nasty.");
