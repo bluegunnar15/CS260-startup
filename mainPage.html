@@ -54,12 +54,15 @@
             <h1 id="discussionHeader" style="font-weight: bold;">Please Vote</h1>
 
             <div id="parentVote">
-                <button id="childVoteButton" style="margin-left: 10px; margin-right: 10px; background-color: #4CBB17;"
-                    type="button" class="btn btn-primary">Agree</button>
-                <button id="childVoteButton" style="margin-left: 10px; margin-right: 10px; background-color: #EE4B2B;"
-                    type="button" class="btn btn-primary">Disagree</button>
-                <button id="childVoteButton" style="margin-left: 10px; margin-right: 10px; background-color: #1F51FF;"
-                    type="button" class="btn btn-primary">Unsure</button>
+                <button id="childVoteButton" onclick="addAgreeWrapper()"
+                    style="margin-left: 10px; margin-right: 10px; background-color: #4CBB17;" type="button"
+                    class="btn btn-primary">Agree</button>
+                <button id="childVoteButton" onclick="addDisagreeWrapper()"
+                    style="margin-left: 10px; margin-right: 10px; background-color: #EE4B2B;" type="button"
+                    class="btn btn-primary">Disagree</button>
+                <button id="childVoteButton" onclick="addUnsureWrapper()"
+                    style="margin-left: 10px; margin-right: 10px; background-color: #1F51FF;" type="button"
+                    class="btn btn-primary">Unsure</button>
             </div>
 
             <h1 style="font-weight: bold;">Voting Results</h1>

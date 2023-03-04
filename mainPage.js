@@ -5,6 +5,18 @@ function postCommentWrapper() {
     question.postComment(newComment.value);
 }
 
+function addAgreeWrapper() {
+    question.addAgree();
+}
+
+function addDisagreeWrapper() {
+    question.addDisagree();
+}
+
+function addUnsureWrapper() {
+    question.addUnsure();
+}
+
 class Question {
 
     constructor(question) {
@@ -21,10 +33,25 @@ class Question {
         questionNameElement.textContent = this.question;
 
         //Create the voting chart
-        this.createChart();
+        this.drawChart();
 
         //display the comments
         this.displayComments();
+    }
+
+    addAgree() {
+        this.numUpVotes++;
+        this.drawChart();
+    }
+
+    addDisagree() {
+        this.numDownVotes++;
+        this.drawChart();
+    }
+
+    addUnsure() {
+        this.numUnsureVotes++;
+        this.drawChart();
     }
 
     postComment(newComment) {
@@ -63,8 +90,11 @@ class Question {
         })
     }
 
-    createChart() {
-        new Chart(document.getElementById("pie-chart"), {
+    drawChart() {
+        if (this.chart != null) {
+            this.chart.destroy();
+        }
+        this.chart = new Chart(document.getElementById("pie-chart"), {
             type: 'pie',
 
             data: {
