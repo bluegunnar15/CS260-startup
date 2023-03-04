@@ -2,7 +2,9 @@
 
 function postCommentWrapper() {
     const newComment = document.querySelector("#newComment");
-    question.postComment(newComment.value);
+    if (newComment.value != "") {
+        question.postComment(newComment.value);
+    }
 }
 
 function addAgreeWrapper() {
