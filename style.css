@@ -97,30 +97,22 @@ footer {
     justify-content: space-between;
 }
 
-.discussionBoard {
-
-    flex: 1;
-
+#discussionBoard {
+    flex: 5;
     text-align: center;
-
-
 }
 
-
+#sidebar {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+}
 
 #indentedParagraph {
     padding: 1em;
     padding-left: 2em;
 }
 
-
-.sidebar {
-
-    flex: 3;
-    padding: 10px;
-    text-align: center;
-
-}
 
 .demo-box {
     margin: 1rem;

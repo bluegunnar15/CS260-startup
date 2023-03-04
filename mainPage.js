@@ -1,12 +1,17 @@
 
 
+function postCommentWrapper() {
+    const newComment = document.querySelector("#newComment");
+    question.postComment(newComment.value);
+}
+
 class Question {
 
     constructor(question) {
         this.question = question;
 
         //This will pool the database
-        this.comments = this.getComments;
+        this.comments = this.getComments();
         this.numUpVotes = 8;
         this.numDownVotes = 6;
         this.numUnsureVotes = 1;
@@ -15,29 +20,47 @@ class Question {
         const questionNameElement = document.querySelector('.question-name');
         questionNameElement.textContent = this.question;
 
-        this.chart = this.createChart();
+        //Create the voting chart
+        this.createChart();
 
-        var cars = ["Saab", "Volvo", "BMW"];
-        cars.forEach((item, index) => {
-            const commentBoard = document.getElementsByClassName('questionComments');
+        //display the comments
+        this.displayComments();
+    }
+
+    postComment(newComment) {
+        this.comments.push(newComment);
+        const commentBoard = document.getElementsByClassName('questionComments');
+
+        const child = document.createElement('div');
+        child.className = "demo-box";
+        const test = "<div>" + newComment + "</div>";
+        child.innerHTML = test;
+
+        commentBoard[0].appendChild(child);
+
+    }
+
+    getComments() {
+        let tmpComments = [];
+        for (let i = 0; i < 8; i++) {
+            tmpComments[i] = "Fake Comment " + i;
+        }
+
+        return tmpComments;
+    }
+
+    displayComments() {
+        const commentBoard = document.getElementsByClassName('questionComments');
+
+        this.comments.forEach((item, index) => {
 
             const child = document.createElement('div');
             child.className = "demo-box";
             const test = "<div>" + item + "</div>";
             child.innerHTML = test;
 
-            // ✅ Works
             commentBoard[0].appendChild(child);
         })
-    }
-
-    getComments() {
-        tmpComments = [];
-        for (let i = 0; i < 5; i++) {
-            tmpComments.push("Fake Comment " + i);
-        }
-
-        return tmpComments;
     }
 
     createChart() {
@@ -54,9 +77,6 @@ class Question {
             options: {
                 title: {
                     display: false,
-                    legend: {
-                        position: 'left'
-                    },
                     layout: {
                         padding: {
                             left: 30,
@@ -64,6 +84,13 @@ class Question {
                             top: 0,
                             bottom: 0
                         }
+                    }
+                },
+                legend: {
+                    position: 'left',
+                    display: true,
+                    labels: {
+                        fontSize: 40
                     }
                 }
             }

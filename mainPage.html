@@ -64,7 +64,7 @@
 
             <h1 style="font-weight: bold;">Voting Results</h1>
             <div id="parentResults" style="display: inline-block;">
-                <canvas id="pie-chart" width="250" height="100"></canvas>
+                <canvas id="pie-chart" height="75"></canvas>
             </div>
 
 
@@ -79,11 +79,13 @@
                 <div class="card-footer" id="Tmp">
                     <div class="d-flex flex-start w-100">
                         <div class="form-outline w-100">
-                            <textarea class="form-control" id="textAreaExample" rows="2">Type a Reply</textarea>
+                            <input type="text" id="newComment" placeholder="Type a Reply"
+                                style="width:275px; height: 50px; border-color: black;" />
                         </div>
                     </div>
                     <div id="postComment">
-                        <button type="button" class="btn btn-primary btn-sm">Post comment</button>
+                        <button type="button" class="btn btn-primary btn-sm" onclick="postCommentWrapper()">Post
+                            comment</button>
                     </div>
                 </div>
             </div>
