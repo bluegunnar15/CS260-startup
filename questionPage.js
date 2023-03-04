@@ -1,5 +1,4 @@
 
-
 function postCommentWrapper() {
     const newComment = document.querySelector("#newComment");
     if (newComment.value != "") {
@@ -19,7 +18,7 @@ function addUnsureWrapper() {
     question.addUnsure();
 }
 
-class Question {
+export default class Question {
 
     constructor(question) {
         this.question = question;
