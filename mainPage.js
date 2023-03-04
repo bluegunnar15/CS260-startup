@@ -19,16 +19,15 @@ class Question {
 
         var cars = ["Saab", "Volvo", "BMW"];
         cars.forEach((item, index) => {
-
-
-            const boxes = document.getElementsByClassName('name');
-            console.log(boxes); // 👉️ [div.box, div.box, div.box]
+            const commentBoard = document.getElementsByClassName('questionComments');
 
             const child = document.createElement('div');
-            child.innerHTML = `<h1>' + item + '</h1>`;
+            child.className = "demo-box";
+            const test = "<div>" + item + "</div>";
+            child.innerHTML = test;
 
             // ✅ Works
-            boxes[0].appendChild(child);
+            commentBoard[0].appendChild(child);
         })
     }
 
