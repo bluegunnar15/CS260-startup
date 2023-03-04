@@ -18,7 +18,7 @@ function addUnsureWrapper() {
     question.addUnsure();
 }
 
-export default class Question {
+class Question {
 
     constructor(question) {
         this.question = question;
