@@ -32,7 +32,7 @@ class QuestionPage {
         this.numDownVotes = downVotes;
         this.numUnsureVotes = unsureVotes;
 
-        const playerNameEl = document.querySelector('.player-name');
+        const playerNameEl = document.querySelector('#player-name');
         playerNameEl.textContent = this.getPlayerName();
 
         const questionNameElement = document.querySelector('.question-name');
@@ -68,7 +68,7 @@ class QuestionPage {
 
         const child = document.createElement('div');
         child.style = "";
-        const test = "<h2 style =\"text-align: center; \"> " + this.numUpVotes + " people agree, " + this.numDownVotes + " people disagree, and " + this.numUnsureVotes + " people are unsure. </h2>";
+        const test = "<h5 style =\"text-align: center; \"> " + this.numUpVotes + " people agree, " + this.numDownVotes + " people disagree, and " + this.numUnsureVotes + " people are unsure. </h5>";
 
         child.innerHTML = test;
 
@@ -151,7 +151,7 @@ class QuestionPage {
                     position: 'left',
                     display: true,
                     labels: {
-                        fontSize: 40
+                        fontSize: 20
                     }
                 }
             }

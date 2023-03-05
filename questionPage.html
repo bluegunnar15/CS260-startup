@@ -20,7 +20,7 @@
         <nav class="navbar navbar-expand-lg" style="background-color: dodgerblue;">
             <div class="container-fluid">
                 <a class="navbar-brand" href="https://github.com/bluegunnar15/CS260-startup">
-                    <h1>Dumb Questions</h1>
+                    <h3>Dumb Questions</h3>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent">
@@ -38,8 +38,8 @@
                             <a class="nav-link" href="newPostPage.html">New Post</a>
                         </li>
                     </ul>
-                    <div style="font-size: x-large;">
-                        <span class="player-name">Mystery User</span>
+                    <div style="font-size: large;">
+                        <a class="nav-link active" id="player-name" href="index.html">New Post</a>
                     </div>
                 </div>
             </div>
@@ -49,10 +49,10 @@
     <main class="container-fluid">
         <div id="discussionBoard" class="demo-box">
             <h1 id="discussionHeader" style="font-weight: bold;">The Opinion</h1>
-            <div class="author-name" style="font-size: x-large;">By: Default User</div>
-            <div class="question-name" id="indentedParagraph" style="font-size: xx-large;">Default Question.
+            <div class="author-name" style="font-size: large;">By: Default User</div>
+            <div class="question-name" id="indentedParagraph" style="font-size: x-large;">Default Question.
             </div>
-            <h1 class="please-vote" id="discussionHeader" style="font-weight: bold;">Please Vote</h1>
+            <h3 class="please-vote" id="discussionHeader" style="font-weight: bold;">Please Vote</h3>
 
             <div class="voting-options" id="parentVote">
                 <button id="childVoteButton" onclick="addAgreeWrapper()"
@@ -66,7 +66,7 @@
                     class="btn btn-primary">Unsure</button>
             </div>
 
-            <h1 class="voting-results" style="font-weight: bold;">Voting Results</h1>
+            <h3 class="voting-results" style="font-weight: bold;">Voting Results</h3>
             <div id="parentResults" style="display: inline-block;">
                 <canvas id="pie-chart" height="75"></canvas>
             </div>

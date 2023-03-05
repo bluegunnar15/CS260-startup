@@ -11,7 +11,7 @@ function newPostWrapper() {
 
 class PostPage {
     constructor() {
-        const playerNameEl = document.querySelector('.player-name');
+        const playerNameEl = document.querySelector('#player-name');
         playerNameEl.textContent = this.getPlayerName();
 
         const postedBy = document.querySelector('.posted-by');

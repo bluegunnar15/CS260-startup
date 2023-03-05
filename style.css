@@ -24,8 +24,8 @@ body {
 }
 
 #childVoteButton {
-    width: 250px;
-    height: 100px;
+    width: 200px;
+    height: 50px;
     margin: 0 auto;
     padding: 0;
     display: table-cell;
@@ -64,13 +64,13 @@ body {
 }
 
 #navButton {
-
+    text-align: center;
     padding-left: 4rem;
     padding-right: 4rem;
-    width: 25%;
-    height: 110px;
-    font-size: xx-large;
-    color: black;
+    width: 220px;
+    height: 50px;
+    font-size: large;
+    color: white;
 }
 
 #postComment {

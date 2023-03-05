@@ -33,7 +33,7 @@ class Question {
 
 class PopularPage {
     constructor() {
-        const playerNameEl = document.querySelector('.player-name');
+        const playerNameEl = document.querySelector('#player-name');
         playerNameEl.textContent = this.getPlayerName();
 
         //get all the questions stored in the database
@@ -51,7 +51,7 @@ class PopularPage {
             child.className = "demo-box";
             child.style = "text-align: left; border-color: black;";
 
-            const test = "<div style =\"text-align: left; font-size: x-large; font-weight: bold; \">" + item.question + "</div><div style=\"text-align: right; position:relative; font-size: x-large;\"> Posted by: " + item.user + "<\div>";
+            const test = "<div style =\"text-align: left; font-size: large; font-weight: bold; \">" + item.question + "</div><div style=\"text-align: right; position:relative; font-size: large;\"> Posted by: " + item.user + "<\div>";
 
             child.addEventListener("click", function () {
                 localStorage.setItem("qQuestion", item.question);
@@ -105,7 +105,7 @@ function generateFakeQuestions() {
     fakeQuestions[0] = new Question(firstQuestion, "Lilyana Blackman", getComments(), getLargeNumber(), getLargeNumber(), getSmallNumber());
 
     //Second Question
-    const secondQuestion = "Are you guys Dark or milk chocolate kind of people? People always say that dark chocalate is better for you, it probably is, I havent researched it, but milk chocolate actually tastes good. I wish I could say that about dark chocolate...";
+    const secondQuestion = "Are you guys dark or milk chocolate kind of people? People always say that dark chocalate is better for you, it probably is, I havent researched it, but milk chocolate actually tastes good. I wish I could say that about dark chocolate...";
     fakeQuestions[1] = new Question(secondQuestion, "Michaela Harland", this.getComments(), this.getLargeNumber(), this.getLargeNumber(), this.getSmallNumber());
 
     //Third Question

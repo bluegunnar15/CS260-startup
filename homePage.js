@@ -4,7 +4,7 @@ class HomePage {
         welcomeEl.textContent = "Welcome " + localStorage.getItem('userName') + " to DumbQuestions!";
 
 
-        const playerNameEl = document.querySelector('.player-name');
+        const playerNameEl = document.querySelector('#player-name');
         playerNameEl.textContent = this.getPlayerName();
     }
 

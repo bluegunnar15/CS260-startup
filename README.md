@@ -1,6 +1,17 @@
 # CS260-startup
 startup project for cs260
 
+JS notes from mstart up: 
+
+  * To remove all children from a dom object
+        while (votingBox.firstChild) {
+              votingBox.removeChild(votingBox.firstChild);
+          }
+
+  * Use localstorage to save data between pages, works sort of like a map. 
+  
+
+
 JS notes from simon: Make sure that the ids match up!! 
 
 DOM:
