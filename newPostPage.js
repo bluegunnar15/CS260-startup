@@ -1,5 +1,9 @@
 function newPostWrapper() {
     //handle posting logic here
+    const questionElement = document.querySelector("#newPostQuestion");
+    const newQ = questionElement.value;
+
+    localStorage.setItem("newPostQuestion", newQ);
 
     window.location.href = "popularPage.html";
 }
