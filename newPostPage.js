@@ -1,10 +1,18 @@
+function newPostWrapper() {
+    //handle posting logic here
+
+    window.location.href = "popularPage.html";
+}
+
+
 class PostPage {
     constructor() {
         const playerNameEl = document.querySelector('.player-name');
         playerNameEl.textContent = this.getPlayerName();
 
-        //get all the questions stored in the database
-        this.allQuestions = this.generateFakeQuestions();
+        const postedBy = document.querySelector('.posted-by');
+        postedBy.textContent = "Posting as: " + this.getPlayerName();
+
 
     }
 

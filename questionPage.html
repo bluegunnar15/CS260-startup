@@ -49,11 +49,12 @@
     <main class="container-fluid">
         <div id="discussionBoard" class="demo-box">
             <h1 id="discussionHeader" style="font-weight: bold;">The Opinion</h1>
+            <div class="author-name" style="font-size: x-large;">By: Default User</div>
             <div class="question-name" id="indentedParagraph" style="font-size: xx-large;">Default Question.
             </div>
-            <h1 id="discussionHeader" style="font-weight: bold;">Please Vote</h1>
+            <h1 class="please-vote" id="discussionHeader" style="font-weight: bold;">Please Vote</h1>
 
-            <div id="parentVote">
+            <div class="voting-options" id="parentVote">
                 <button id="childVoteButton" onclick="addAgreeWrapper()"
                     style="margin-left: 10px; margin-right: 10px; background-color: #4CBB17;" type="button"
                     class="btn btn-primary">Agree</button>
@@ -65,7 +66,7 @@
                     class="btn btn-primary">Unsure</button>
             </div>
 
-            <h1 style="font-weight: bold;">Voting Results</h1>
+            <h1 class="voting-results" style="font-weight: bold;">Voting Results</h1>
             <div id="parentResults" style="display: inline-block;">
                 <canvas id="pie-chart" height="75"></canvas>
             </div>
@@ -99,10 +100,7 @@
 
     <test>
         <div id="bottomNav">
-            <button id="navButton" style="margin-right: 20px;" type="button" class="btn btn-success">&lt- Last
-                Question</button>
-            <button id="navButton" style="margin-left: 20px;" type="button" class="btn btn-success">Next Question
-                -&gt</button>
+            <button id="navButton" type="button" onclick="back()" class="btn btn-success">Go Back</button>
         </div>
 
     </test>

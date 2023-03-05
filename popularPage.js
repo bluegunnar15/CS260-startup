@@ -1,10 +1,3 @@
-function loadQuestion() {
-    //const nameEl = document.querySelector("#name");
-    //localStorage.setItem("currentQuestionName", nameEl.value);
-
-    //window.location.href = "questionPage.html";
-}
-
 class Question {
 
     constructor(question, user, comments, upVotes, downVotes, unsureVotes) {
@@ -45,7 +38,6 @@ class PopularPage {
 
         //get all the questions stored in the database
         this.allQuestions = this.generateFakeQuestions();
-
 
         this.displayAllQuestions();
 
@@ -91,7 +83,7 @@ class PopularPage {
         fakeQuestions[3] = new Question(fourthQuestion, "Helen Cabot", this.getComments(), this.getLargeNumber(), this.getLargeNumber(), this.getSmallNumber());
 
         //Fifth Question
-        const fifthQuestion = "Ok ok this is kind of dumb but hear me out- is ketchup a tomato smoothie? I mean why isn't is?";
+        const fifthQuestion = "Ok ok this is kind of dumb but hear me out- is ketchup a tomato smoothie? I mean why isn't it?";
         fakeQuestions[4] = new Question(fifthQuestion, "Brandon Weatherly", this.getComments(), this.getLargeNumber(), this.getLargeNumber(), this.getSmallNumber());
 
         //Sixth Question
@@ -122,7 +114,7 @@ class PopularPage {
             child.className = "demo-box";
             child.style = "text-align: left; border-color: black;";
 
-            const test = "<div style =\"text-align: left; font-size: x-large; \">" + item.question + "</div><div style=\"text-align: center; position:relative; font-size: x-large;\"> Posted by: " + item.user + "<\div>";
+            const test = "<div style =\"text-align: left; font-size: x-large; font-weight: bold; \">" + item.question + "</div><div style=\"text-align: right; position:relative; font-size: x-large;\"> Posted by: " + item.user + "<\div>";
 
             child.addEventListener("click", function () {
                 localStorage.setItem("qQuestion", item.question);

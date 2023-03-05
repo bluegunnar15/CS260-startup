@@ -1,4 +1,8 @@
 
+function back() {
+    window.location.href = "popularPage.html";
+}
+
 function postCommentWrapper() {
     const newComment = document.querySelector("#newComment");
     if (newComment.value != "") {
@@ -34,6 +38,11 @@ class QuestionPage {
         const questionNameElement = document.querySelector('.question-name');
         questionNameElement.textContent = this.question;
 
+
+        const authorNameElement = document.querySelector('.author-name');
+        authorNameElement.textContent = "Posted by: " + this.user;
+
+
         //Create the voting chart
         this.drawChart();
 
@@ -42,18 +51,46 @@ class QuestionPage {
 
     }
 
+    clearVotingOption() {
+        const votingBox = document.querySelector('.voting-options');
+        const pleaseVote = document.querySelector('.please-vote');
+        const votingResults = document.querySelector('.voting-results');
+
+
+
+        //remove the option to vote
+        while (votingBox.firstChild) {
+            votingBox.removeChild(votingBox.firstChild);
+        }
+
+        pleaseVote.textContent = "Thank you for voting- Here are the numbers";
+        votingResults.textContent = "";//"Agree: " + this.numUpVotes + " Disagree " + this.numDownVotes + " Unsure: " + this.numUnsureVotes;
+
+        const child = document.createElement('div');
+        child.style = "";
+        const test = "<h2 style =\"text-align: center; \"> " + this.numUpVotes + " people agree, " + this.numDownVotes + " people disagree, and " + this.numUnsureVotes + " people are unsure. </h2>";
+
+        child.innerHTML = test;
+
+        votingBox.appendChild(child);
+
+    }
+
     addAgree() {
         this.numUpVotes++;
+        this.clearVotingOption();
         this.drawChart();
     }
 
     addDisagree() {
         this.numDownVotes++;
+        this.clearVotingOption();
         this.drawChart();
     }
 
     addUnsure() {
         this.numUnsureVotes++;
+        this.clearVotingOption();
         this.drawChart();
     }
 

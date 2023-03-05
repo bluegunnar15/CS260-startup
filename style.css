@@ -16,7 +16,7 @@ body {
 
 #parentVote {
     width: 98%;
-    border: 1px solid black;
+
     margin: 1rem;
     padding: 2rem 2rem;
 
@@ -36,7 +36,7 @@ body {
 
 #parentResults {
     width: 98%;
-    border: 1px solid black;
+
     margin: 1rem;
     padding: 2rem 2rem;
 
@@ -71,8 +71,6 @@ body {
     height: 110px;
     font-size: xx-large;
     color: black;
-
-
 }
 
 #postComment {
