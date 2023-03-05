@@ -84,8 +84,13 @@ class PopularPage {
 
 
             child.addEventListener("click", function () {
-                localStorage.setItem("currentQuestionName", item);
-                console.log(item);
+                localStorage.setItem("qQuestion", item.question);
+                localStorage.setItem("qUser", item.user);
+                localStorage.setItem("qComments", item.comments);
+                localStorage.setItem("qUpVotes", item.numUpVotes);
+                localStorage.setItem("qDownVotes", item.numDownVotes);
+                localStorage.setItem("qUnsureVotes", item.numUnsureVotes);
+
                 window.location.href = "questionPage.html";
             });
 

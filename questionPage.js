@@ -18,18 +18,20 @@ function addUnsureWrapper() {
     question.addUnsure();
 }
 
-class Question {
 
-    constructor(question) {
+class QuestionPage {
+    constructor(question, user, comments, upVotes, downVotes, unsureVotes) {
         this.question = question;
+        this.user = user;
+        this.comments = comments;
+        this.numUpVotes = upVotes;
+        this.numDownVotes = downVotes;
+        this.numUnsureVotes = unsureVotes;
 
-        //This will pool the database
-        this.comments = this.getComments();
-        this.numUpVotes = 8;
-        this.numDownVotes = 6;
-        this.numUnsureVotes = 1;
 
-        //set display information
+        const playerNameEl = document.querySelector('.player-name');
+        playerNameEl.textContent = this.getPlayerName();
+
         const questionNameElement = document.querySelector('.question-name');
         questionNameElement.textContent = this.question;
 
@@ -38,6 +40,7 @@ class Question {
 
         //display the comments
         this.displayComments();
+
     }
 
     addAgree() {
@@ -128,24 +131,12 @@ class Question {
         });
     }
 
-
-}
-
-class PageInformation {
-    constructor() {
-        const playerNameEl = document.querySelector('.player-name');
-        playerNameEl.textContent = this.getPlayerName();
-
-        this.allQuestions = [];
-        this.allQuestions[0] = new Question("Blah");
-    }
-
     getPlayerName() {
         return localStorage.getItem('userName') ?? 'Mystery player';
     }
 }
 
+const curQuestion = localStorage.getItem('currentQuestion');
 
-
-const page = new PageInformation();
-//const question = new Question("Test:: Let’s imagine you have left over pizza in the refrigerator. You get hungry, do you either eat the pizza cold or warm it up in the microwave? I argue that it tastes better to eat it cold. When you microwave the pizza, it becomes all floppy and nasty.");
+const questionPage = new QuestionPage(localStorage.getItem('qQuestion'), localStorage.getItem('qUser'), localStorage.getItem('qComments'),
+    localStorage.getItem('qUpVotes'), localStorage.getItem('qDownVotes'), localStorage.getItem('qUnsureVotes'),);
