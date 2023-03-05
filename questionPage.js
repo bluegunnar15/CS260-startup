@@ -2,20 +2,20 @@
 function postCommentWrapper() {
     const newComment = document.querySelector("#newComment");
     if (newComment.value != "") {
-        question.postComment(newComment.value);
+        questionPage.postComment(newComment.value);
     }
 }
 
 function addAgreeWrapper() {
-    question.addAgree();
+    questionPage.addAgree();
 }
 
 function addDisagreeWrapper() {
-    question.addDisagree();
+    questionPage.addDisagree();
 }
 
 function addUnsureWrapper() {
-    question.addUnsure();
+    questionPage.addUnsure();
 }
 
 
@@ -27,7 +27,6 @@ class QuestionPage {
         this.numUpVotes = upVotes;
         this.numDownVotes = downVotes;
         this.numUnsureVotes = unsureVotes;
-
 
         const playerNameEl = document.querySelector('.player-name');
         playerNameEl.textContent = this.getPlayerName();
@@ -69,15 +68,6 @@ class QuestionPage {
 
         commentBoard[0].appendChild(child);
 
-    }
-
-    getComments() {
-        let tmpComments = [];
-        for (let i = 0; i < 8; i++) {
-            tmpComments[i] = "Fake Comment " + i;
-        }
-
-        return tmpComments;
     }
 
     displayComments() {
@@ -138,5 +128,5 @@ class QuestionPage {
 
 const curQuestion = localStorage.getItem('currentQuestion');
 
-const questionPage = new QuestionPage(localStorage.getItem('qQuestion'), localStorage.getItem('qUser'), localStorage.getItem('qComments'),
+const questionPage = new QuestionPage(localStorage.getItem('qQuestion'), localStorage.getItem('qUser'), JSON.parse(localStorage.getItem("qComments")),
     localStorage.getItem('qUpVotes'), localStorage.getItem('qDownVotes'), localStorage.getItem('qUnsureVotes'),);

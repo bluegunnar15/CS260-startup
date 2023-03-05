@@ -78,7 +78,7 @@ class PopularPage {
             child.className = "demo-box";
             child.style = "text-align: left; border-color: black;";
 
-            const test = "<div style =\"text-align: left; font-size: x-large; \">" + item.question + "</div><div style=\"text-align: center; position:relative; font-size: x-large;\"> By: " + item.user + "<\div>";
+            const test = "<div style =\"text-align: left; font-size: x-large; \">" + item.question + "</div><div style=\"text-align: center; position:relative; font-size: x-large;\"> Posted by: " + item.user + "<\div>";
 
 
 
@@ -86,7 +86,7 @@ class PopularPage {
             child.addEventListener("click", function () {
                 localStorage.setItem("qQuestion", item.question);
                 localStorage.setItem("qUser", item.user);
-                localStorage.setItem("qComments", item.comments);
+                localStorage.setItem("qComments", JSON.stringify(item.comments));
                 localStorage.setItem("qUpVotes", item.numUpVotes);
                 localStorage.setItem("qDownVotes", item.numDownVotes);
                 localStorage.setItem("qUnsureVotes", item.numUnsureVotes);
