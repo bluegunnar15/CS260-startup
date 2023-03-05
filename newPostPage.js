@@ -6,8 +6,6 @@ class PostPage {
         //get all the questions stored in the database
         this.allQuestions = this.generateFakeQuestions();
 
-
-
     }
 
 

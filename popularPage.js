@@ -1,3 +1,10 @@
+function loadQuestion() {
+    //const nameEl = document.querySelector("#name");
+    //localStorage.setItem("currentQuestionName", nameEl.value);
+
+    //window.location.href = "questionPage.html";
+}
+
 class Question {
 
     constructor(question) {
@@ -71,7 +78,18 @@ class PopularPage {
             child.className = "demo-box";
             child.style = "text-align: left; border-color: black;";
 
-            const test = "<div style=\"position:relative; font-size: x-large;\"> By: " + item.user + "<\div><button style=\"position: absolute;right: 5%; top: 12px;\"type=\"button\"class=\"btn btn-primary\">Continue Reading</button><div>" + item.question + "</div>";
+            const test = "<div style =\"text-align: left; font-size: x-large; \">" + item.question + "</div><div style=\"text-align: center; position:relative; font-size: x-large;\"> By: " + item.user + "<\div>";
+
+
+
+
+            child.addEventListener("click", function () {
+                localStorage.setItem("currentQuestionName", item);
+                console.log(item);
+                window.location.href = "questionPage.html";
+            });
+
+
             child.innerHTML = test;
 
             commentBoard[0].appendChild(child);
