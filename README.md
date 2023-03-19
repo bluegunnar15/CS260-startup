@@ -1,7 +1,12 @@
 # CS260-startup
 startup project for cs260
 
-JS notes from mstart up: 
+Service notes from start up:
+  * "sudo kill -9 $(lsof -t -i:6000)" kills listening on port 6000 or whatever port specified 
+  * dont forget "app.use(express.static('public'));" in index.js, tells index.js to use the html/files in the public folder
+  * also dont forget "npm init -y" in new project folders!! installs node.js
+
+JS notes from start up: 
 
   * To remove all children from a dom object
         while (votingBox.firstChild) {
