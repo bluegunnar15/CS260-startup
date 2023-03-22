@@ -1,6 +1,9 @@
 # CS260-startup
 startup project for cs260
 
+Simon Notes from DB:
+ * REMEMBER TO ALLOW ACCESS FROM ALL IPS- was able to access data locally but wasnt pulling/uploading when hosted on server
+
 Service notes from start up:
   * "sudo kill -9 $(lsof -t -i:6000)" kills listening on port 6000 or whatever port specified 
   * dont forget "app.use(express.static('public'));" in index.js, tells index.js to use the html/files in the public folder
