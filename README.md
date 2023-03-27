@@ -1,6 +1,11 @@
 # CS260-startup
 startup project for cs260
 
+Simon Notes from Login: 
+ * "pm2 start index.js -n simon -- 3000" to manually start simon on aws server
+ * "pm2 ls" to list processes running on aws server
+ * Makes sure simon and start up are running on separate ports!! 
+
 Simon Notes from DB:
  * REMEMBER TO ALLOW ACCESS FROM ALL IPS- was able to access data locally but wasnt pulling/uploading when hosted on server
 
