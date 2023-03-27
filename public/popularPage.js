@@ -30,9 +30,32 @@ class Question {
 
 }
 
+async function loadPopularQuestions() {
+    let questions = [];
+
+    try {
+        // Get the latest high scores from the service
+        const response = await fetch('/api/getPopular');
+        console.log("response: " + response);
+        questions = await response.json();
+        console.log("questions: " + questions);
+
+        // Save the scores in case we go offline in the future
+        localStorage.setItem('allQuestions', JSON.stringify(questions));
+    } catch {
+        // If there was an error then just use the last saved scores
+        const scoresText = localStorage.getItem('allQuestions');
+        if (scoresText) {
+            scores = JSON.parse(scoresText);
+        }
+    }
+
+}
+
 
 class PopularPage {
     constructor() {
+        loadPopularQuestions();
         const playerNameEl = document.querySelector('#player-name');
         playerNameEl.textContent = this.getPlayerName();
 
@@ -45,6 +68,7 @@ class PopularPage {
 
     displayAllQuestions() {
         const commentBoard = document.getElementsByClassName('questionList');
+        console.log(JSON.stringify(allQuestions[0]));
         this.allQuestions.forEach((item, index) => {
 
             const child = document.createElement('div');
@@ -67,7 +91,10 @@ class PopularPage {
 
             child.innerHTML = test;
 
-            commentBoard[0].appendChild(child);
+
+            //commentBoard[0].appendChild(child);
+
+
 
         })
     }
@@ -142,7 +169,6 @@ function generateFakeQuestions() {
 
 function checkNewPost() {
     const newQ = localStorage.getItem("newPostQuestion");
-    console.log(newQ);
 
     if (newQ == null) {
         return null;
@@ -161,3 +187,4 @@ if (newQ != null) {
 localStorage.setItem("allQuestions", JSON.stringify(allQuestions));
 
 const popPage = new PopularPage();
+

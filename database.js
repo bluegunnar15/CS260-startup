@@ -23,9 +23,9 @@ function getPopularQuestions() {
   return cursor.toArray();
 }
 
-function addScore(score) {
-  scoreCollection.insertOne(score);
+function postQuestion(question) {
+  scoreCollection.insertOne(question);
 }
 
 
-module.exports = { addScore, getPopularQuestions };
+module.exports = { postQuestion, getPopularQuestions };
