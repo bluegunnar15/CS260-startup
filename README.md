@@ -1,6 +1,9 @@
 # CS260-startup
 startup project for cs260
 
+Simon Notes from Websocket:
+  * Make sure you install "ws"... will save countless minutes of wondering why its not working  
+
 Simon Notes from Login: 
  * "pm2 start index.js -n simon -- 3000" to manually start simon on aws server
  * "pm2 ls" to list processes running on aws server
