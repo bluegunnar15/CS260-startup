@@ -17,7 +17,7 @@ function getPopularQuestions() {
   const query = {};
   const options = {
     sort: { score: -1 },
-    limit: 10,
+    //limit: 10,
   };
   const cursor = scoreCollection.find(query, options);
   return cursor.toArray();

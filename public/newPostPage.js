@@ -1,22 +1,23 @@
 
+function getPlayerName() {
+    return localStorage.getItem('userName') ?? 'Mystery player';
+}
+
 const postButton = document.querySelector('#postButton');
 
-postButton.addEventListener("click", function () {
+postButton.addEventListener("click", async function () {
     const questionElement = document.querySelector("#newPostQuestion");
     const newQ = questionElement.value;
 
-    saveQuestion(newQ);
-    //localStorage.setItem("newPostQuestion", newQ);
-
-    //window.location.href = "popularPage.html";
+    await saveQuestion(newQ).then(window.location.href = "popularPage.html");
 
 });
 
 async function saveQuestion(question) {
-    //const userName = this.getPlayerName();
+    const userName = getPlayerName();
     //const date = new Date().toLocaleDateString();
 
-    const newQuestion = new Question("firstQuestion", "Lilyana Blackman", {}, 50, 50, 20);
+    const newQuestion = new Question(question, userName, {}, 50, 50, 20);
 
 
     try {
@@ -26,9 +27,11 @@ async function saveQuestion(question) {
             body: JSON.stringify(newQuestion),
         });
 
+
+
         // Store what the service gave us as the high scores
-        const questions = await response.json();
-        localStorage.setItem('allQuestions', JSON.stringify(questions));
+        //const questions = await response.json();
+        //localStorage.setItem('allQuestions', JSON.stringify(questions));
     } catch {
         // If there was an error then just track scores locally
         //this.updateScoresLocal(question);
@@ -39,17 +42,12 @@ async function saveQuestion(question) {
 class PostPage {
     constructor() {
         const playerNameEl = document.querySelector('#player-name');
-        playerNameEl.textContent = this.getPlayerName();
+        playerNameEl.textContent = getPlayerName();
 
         const postedBy = document.querySelector('.posted-by');
-        postedBy.textContent = "Posting as: " + this.getPlayerName();
+        postedBy.textContent = "Posting as: " + getPlayerName();
 
 
-    }
-
-
-    getPlayerName() {
-        return localStorage.getItem('userName') ?? 'Mystery player';
     }
 }
 
