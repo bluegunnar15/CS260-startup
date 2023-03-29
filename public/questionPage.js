@@ -2,8 +2,37 @@ function back() {
     window.location.href = "popularPage.html";
 }
 
-function postCommentWrapper() {
-    const newComment = document.querySelector("#newComment");
+const commentButton = document.querySelector('#commentButton');
+
+commentButton.addEventListener("click", async function () {
+    postCommentWrapper();
+});
+
+async function postCommentWrapper() {
+    const newComment = document.querySelector("#newComment").value;
+    console.log(newComment);
+
+    const j = {
+        "question": localStorage.getItem('qQuestion'),
+        "newComment": newComment
+    }
+
+    try {
+        const response = await fetch('/api/addComment', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(j),
+        });
+
+    } catch (e) {
+        console.log("An error occured: " + e);
+    }
+
+
+    return;
+
+
+
     if (newComment.value != "") {
         questionPage.postComment(newComment.value);
     }
@@ -11,63 +40,99 @@ function postCommentWrapper() {
 
 async function addAgreeWrapper() {
 
-    let tmp = localStorage.getItem('qQuestion')
-
-
-    const meow = 'hello';
     try {
         const response = await fetch('/api/addAgree', {
             method: 'POST',
             headers: { 'content-type': 'text/plain' },
-            body: "test",
+            body: localStorage.getItem('qQuestion'),
         });
 
-
-        console.log(await response.text());
-
     } catch (e) {
-        console.log("Bad " + e);
-        // If there was an error then just track scores locally
-        //this.updateScoresLocal(question);
+        console.log("An error occured: " + e);
     }
 
-    // questionPage.addAgree();
+    await updateLocalStorage();
+    questionPage.clearVotingOption();
+    questionPage.drawChart();
 }
 
-function addDisagreeWrapper() {
-    questionPage.addDisagree();
+async function addDisagreeWrapper() {
+
+    try {
+        const response = await fetch('/api/addDisagree', {
+            method: 'POST',
+            headers: { 'content-type': 'text/plain' },
+            body: localStorage.getItem('qQuestion'),
+        });
+
+    } catch (e) {
+        console.log("An error occured: " + e);
+    }
+
+    await updateLocalStorage();
+    questionPage.clearVotingOption();
+    questionPage.drawChart();
 }
 
-function addUnsureWrapper() {
-    questionPage.addUnsure();
+async function addUnsureWrapper() {
+
+    try {
+        const response = await fetch('/api/addUnsure', {
+            method: 'POST',
+            headers: { 'content-type': 'text/plain' },
+            body: localStorage.getItem('qQuestion'),
+        });
+
+    } catch (e) {
+        console.log("An error occured: " + e);
+    }
+
+    await updateLocalStorage();
+    questionPage.clearVotingOption();
+    questionPage.drawChart();
 }
 
+async function updateLocalStorage() {
+    try {
+        const response = await fetch('/api/getQuestion', {
+            method: 'POST',
+            headers: { 'content-type': 'text/plain' },
+            body: localStorage.getItem('qQuestion'),
+        });
+
+        const item = await response.json();
+
+        localStorage.setItem("qQuestion", item.question);
+        localStorage.setItem("qUser", item.user);
+        localStorage.setItem("qComments", JSON.stringify(item.comments));
+        localStorage.setItem("qUpVotes", item.numUpVotes);
+        localStorage.setItem("qDownVotes", item.numDownVotes);
+        localStorage.setItem("qUnsureVotes", item.numUnsureVotes);
+
+
+    } catch (e) {
+        console.log("An error occured: " + e);
+    }
+}
 
 class QuestionPage {
-    constructor(question, user, comments, upVotes, downVotes, unsureVotes) {
-        this.question = question;
-        this.user = user;
-        this.comments = comments;
-        this.numUpVotes = upVotes;
-        this.numDownVotes = downVotes;
-        this.numUnsureVotes = unsureVotes;
-
+    constructor() {
         const playerNameEl = document.querySelector('#player-name');
         playerNameEl.textContent = this.getPlayerName();
 
         const questionNameElement = document.querySelector('.question-name');
-        questionNameElement.textContent = this.question;
+        questionNameElement.textContent = localStorage.getItem('qQuestion');
 
 
         const authorNameElement = document.querySelector('.author-name');
-        authorNameElement.textContent = "Posted by: " + this.user;
+        authorNameElement.textContent = "Posted by: " + localStorage.getItem('qUser');
 
 
         //Create the voting chart
         this.drawChart();
 
         //display the comments
-        //this.displayComments();
+        this.displayComments();
 
     }
 
@@ -88,30 +153,12 @@ class QuestionPage {
 
         const child = document.createElement('div');
         child.style = "";
-        const test = "<h5 style =\"text-align: center; \"> " + this.numUpVotes + " people agree, " + this.numDownVotes + " people disagree, and " + this.numUnsureVotes + " people are unsure. </h5>";
+        const test = "<h5 style =\"text-align: center; \"> " + localStorage.getItem('qUpVotes') + " people agree, " + localStorage.getItem('qDownVotes') + " people disagree, and " + localStorage.getItem('qUnsureVotes') + " people are unsure. </h5>";
 
         child.innerHTML = test;
 
         votingBox.appendChild(child);
 
-    }
-
-    addAgree() {
-        this.numUpVotes++;
-        this.clearVotingOption();
-        this.drawChart();
-    }
-
-    addDisagree() {
-        this.numDownVotes++;
-        this.clearVotingOption();
-        this.drawChart();
-    }
-
-    addUnsure() {
-        this.numUnsureVotes++;
-        this.clearVotingOption();
-        this.drawChart();
     }
 
     postComment(newComment) {
@@ -130,7 +177,11 @@ class QuestionPage {
     displayComments() {
         const commentBoard = document.getElementsByClassName('questionComments');
 
-        this.comments.forEach((item, index) => {
+        //questions.forEach(function (item) {
+        const comments = JSON.parse(localStorage.getItem("qComments"));
+
+        console.log(comments);
+        comments.forEach((item, index) => {
 
             const child = document.createElement('div');
             child.className = "demo-box";
@@ -152,7 +203,7 @@ class QuestionPage {
                 labels: ["Agree", "Disagree", "Unsure"],
                 datasets: [{
                     backgroundColor: ["#4CBB17", "#EE4B2B", "#1F51FF"],
-                    data: [this.numUpVotes, this.numDownVotes, this.numUnsureVotes]
+                    data: [localStorage.getItem('qUpVotes'), localStorage.getItem('qDownVotes'), localStorage.getItem('qUnsureVotes')]
                 }]
             },
             options: {
@@ -184,6 +235,5 @@ class QuestionPage {
 }
 
 
-const questionPage = new QuestionPage(localStorage.getItem('qQuestion'), localStorage.getItem('qUser'), JSON.parse(localStorage.getItem("qComments")),
-    localStorage.getItem('qUpVotes'), localStorage.getItem('qDownVotes'), localStorage.getItem('qUnsureVotes'),);
+const questionPage = new QuestionPage();
 

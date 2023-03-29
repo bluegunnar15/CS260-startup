@@ -17,7 +17,7 @@ async function saveQuestion(question) {
     const userName = getPlayerName();
     //const date = new Date().toLocaleDateString();
 
-    const newQuestion = new Question(question, userName, {}, 50, 50, 20);
+    const newQuestion = new Question(question, userName, ["Comments", "another"], 50, 50, 20);
 
 
     try {
