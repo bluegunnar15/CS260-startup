@@ -1,4 +1,3 @@
-
 function back() {
     window.location.href = "popularPage.html";
 }
@@ -10,8 +9,29 @@ function postCommentWrapper() {
     }
 }
 
-function addAgreeWrapper() {
-    questionPage.addAgree();
+async function addAgreeWrapper() {
+
+    let tmp = localStorage.getItem('qQuestion')
+
+
+    const meow = 'hello';
+    try {
+        const response = await fetch('/api/addAgree', {
+            method: 'POST',
+            headers: { 'content-type': 'text/plain' },
+            body: "test",
+        });
+
+
+        console.log(await response.text());
+
+    } catch (e) {
+        console.log("Bad " + e);
+        // If there was an error then just track scores locally
+        //this.updateScoresLocal(question);
+    }
+
+    // questionPage.addAgree();
 }
 
 function addDisagreeWrapper() {
@@ -47,7 +67,7 @@ class QuestionPage {
         this.drawChart();
 
         //display the comments
-        this.displayComments();
+        //this.displayComments();
 
     }
 
@@ -163,7 +183,7 @@ class QuestionPage {
     }
 }
 
-const curQuestion = localStorage.getItem('currentQuestion');
 
 const questionPage = new QuestionPage(localStorage.getItem('qQuestion'), localStorage.getItem('qUser'), JSON.parse(localStorage.getItem("qComments")),
     localStorage.getItem('qUpVotes'), localStorage.getItem('qDownVotes'), localStorage.getItem('qUnsureVotes'),);
+

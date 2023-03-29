@@ -45,7 +45,6 @@ class PopularPage {
         playerNameEl.textContent = this.getPlayerName();
 
         loadPopularQuestions();
-
     }
 
     getPlayerName() {
@@ -54,4 +53,3 @@ class PopularPage {
 }
 
 const popPage = new PopularPage();
-

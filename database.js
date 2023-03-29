@@ -27,5 +27,22 @@ function postQuestion(question) {
   scoreCollection.insertOne(question);
 }
 
+async function addAgree(theQuestion) {
+  const query = { question: theQuestion };
+  const cursor = scoreCollection.findOne(query);
 
-module.exports = { postQuestion, getPopularQuestions };
+  const question = await cursor;
+
+  const updatedQuestion = await scoreCollection.updateOne(
+    { question: theQuestion },
+    { $inc: { "numUpVotes": 1 } }
+  );
+
+
+  return updatedQuestion;
+}
+
+
+
+
+module.exports = { postQuestion, getPopularQuestions, addAgree };
