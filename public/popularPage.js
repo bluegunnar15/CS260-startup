@@ -6,6 +6,8 @@ async function loadPopularQuestions() {
         const response = await fetch('/api/getPopular');
         questions = await response.json();
 
+        console.log(questions);
+
         const commentBoard = document.getElementsByClassName('questionList');
 
         questions.forEach(function (item) {

@@ -1,4 +1,6 @@
 const { MongoClient } = require('mongodb');
+const bcrypt = require('bcrypt');
+const uuid = require('uuid');
 
 const userName = process.env.MONGOUSER;
 const password = process.env.MONGOPASSWORD;
@@ -12,6 +14,29 @@ const url = `mongodb+srv://${userName}:${password}@${hostname}`;
 
 const client = new MongoClient(url);
 const scoreCollection = client.db('dumbquestions').collection('questions');
+const userCollection = client.db('dumbquestions').collection('users');
+
+function getUser(email) {
+  return userCollection.findOne({ email: email });
+}
+
+function getUserByToken(token) {
+  return userCollection.findOne({ token: token });
+}
+
+async function createUser(email, password) {
+  // Hash the password before we insert it into the database
+  const passwordHash = await bcrypt.hash(password, 10);
+
+  const user = {
+    email: email,
+    password: passwordHash,
+    token: uuid.v4(),
+  };
+  await userCollection.insertOne(user);
+
+  return user;
+}
 
 function getPopularQuestions() {
   const query = {};
@@ -82,7 +107,7 @@ async function addComment(theQuestion) {
   // Add the new comment to the "comments" array
   const updatedQuestion = await scoreCollection.updateOne(
     { question: theQuestion.question },
-    { $push: { comments: theQuestion.newComment } }
+    { $push: { comments: [theQuestion.postingUser, theQuestion.newComment] } }
   );
 
   return updatedQuestion;
@@ -91,4 +116,4 @@ async function addComment(theQuestion) {
 
 
 
-module.exports = { postQuestion, getPopularQuestions, addAgree, addDisagree, addUnsure, getQuestion, addComment };
+module.exports = { postQuestion, getPopularQuestions, addAgree, addDisagree, addUnsure, getQuestion, addComment, createUser, getUser, getUserByToken };

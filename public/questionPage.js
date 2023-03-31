@@ -13,9 +13,9 @@ async function postCommentWrapper() {
     const newComment = newCommentInput.value;
     newCommentInput.value = null;
 
-
     const j = {
         "question": localStorage.getItem('qQuestion'),
+        "postingUser": localStorage.getItem('userName'),
         "newComment": newComment
     }
 
@@ -83,9 +83,9 @@ async function addUnsureWrapper() {
         console.log("An error occured: " + e);
     }
 
-    await updateLocalStorage();
-    questionPage.clearVotingOption();
-    questionPage.drawChart();
+    await updateLocalStorage().then(questionPage.clearVotingOption().then(questionPage.drawChart()));
+
+
 }
 
 async function updateLocalStorage() {

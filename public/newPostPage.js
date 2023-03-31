@@ -35,6 +35,7 @@ async function saveQuestion(question) {
     } catch {
         // If there was an error then just track scores locally
         //this.updateScoresLocal(question);
+        console.log("An error occured: " + e);
     }
 }
 

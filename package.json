@@ -10,8 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cookie-parser": "^1.4.6",
     "express": "^4.18.2",
     "mongodb": "^5.1.0",
-    "node-require": "^0.0.10"
+    "node-require": "^0.0.10",
+    "uuid": "^9.0.0"
   }
 }
