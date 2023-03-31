@@ -104,10 +104,13 @@ async function addComment(theQuestion) {
   const cursor = scoreCollection.findOne(query);
   const question = await cursor;
 
-  // Add the new comment to the "comments" array
+  // Create a new comment object with postingUser and comment properties
+  const newComment = { postingUser: theQuestion.postingUser, comment: theQuestion.newComment };
+
+  // Add the new comment object to the "comments" array
   const updatedQuestion = await scoreCollection.updateOne(
     { question: theQuestion.question },
-    { $push: { comments: [theQuestion.postingUser, theQuestion.newComment] } }
+    { $push: { comments: newComment } }
   );
 
   return updatedQuestion;

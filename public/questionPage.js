@@ -83,9 +83,9 @@ async function addUnsureWrapper() {
         console.log("An error occured: " + e);
     }
 
-    await updateLocalStorage().then(questionPage.clearVotingOption().then(questionPage.drawChart()));
-
-
+    await updateLocalStorage();
+    questionPage.clearVotingOption();
+    questionPage.drawChart();
 }
 
 async function updateLocalStorage() {
@@ -156,39 +156,36 @@ class QuestionPage {
 
     }
 
-    postComment(newComment) {
-        this.comments.push(newComment);
-        const commentBoard = document.getElementsByClassName('questionComments');
-
-        const child = document.createElement('div');
-        child.className = "demo-box";
-        const test = "<div>" + newComment + "</div>";
-        child.innerHTML = test;
-
-        commentBoard[0].appendChild(child);
-
-    }
-
     displayComments() {
         const commentBoard = document.getElementsByClassName('questionComments')[0];
-        const comments = JSON.parse(localStorage.getItem("qComments"));
+        const comments = JSON.parse(localStorage.getItem('qComments'));
 
         // Remove all child elements from the comment board
         while (commentBoard.firstChild) {
             commentBoard.removeChild(commentBoard.firstChild);
         }
 
-        comments.forEach((item, index) => {
+        comments.forEach((comment) => {
             const child = document.createElement('div');
-            child.className = "demo-box";
-            const test = "<div>" + item + "</div>";
-            child.innerHTML = test;
+            child.className = 'demo-box';
+            child.style.textAlign = 'left';
+
+            // Create a new element for the posting user in bold
+            const userElement = document.createElement('b');
+            userElement.innerText = `${comment.postingUser}: `;
+
+            // Create a new element for the comment text
+            const commentElement = document.createElement('span');
+            commentElement.innerText = comment.comment;
+
+            // Append the user and comment elements to the child div
+            child.appendChild(userElement);
+            child.appendChild(commentElement);
 
             commentBoard.appendChild(child);
         });
-
-        return;
     }
+
 
     drawChart() {
         if (this.chart != null) {
