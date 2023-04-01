@@ -18,9 +18,12 @@ async function loadPopularQuestions() {
 
             const test = "<div style =\"text-align: left; font-size: large; font-weight: bold; \">" + item.question + "</div><div style=\"text-align: right; position:relative; font-size: large;\"> Posted by: " + item.user + "<\div>";
 
+            console.log(item.timePosted);
+
             child.addEventListener("click", function () {
                 localStorage.setItem("qQuestion", item.question);
                 localStorage.setItem("qUser", item.user);
+                localStorage.setItem("qTime", item.timePosted);
                 localStorage.setItem("qComments", JSON.stringify(item.comments));
                 localStorage.setItem("qUpVotes", item.numUpVotes);
                 localStorage.setItem("qDownVotes", item.numDownVotes);

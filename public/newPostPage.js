@@ -9,7 +9,15 @@ postButton.addEventListener("click", async function () {
     const questionElement = document.querySelector("#newPostQuestion");
     const newQ = questionElement.value;
 
-    await saveQuestion(newQ).then(window.location.href = "popularPage.html");
+    try {
+        await saveQuestion(newQ).then(window.location.href = "popularPage.html");
+    }
+    catch {
+        // If there was an error then just track scores locally
+        //this.updateScoresLocal(question);
+        console.log("An error occured: " + e);
+    }
+
 
 });
 
@@ -17,7 +25,7 @@ async function saveQuestion(question) {
     const userName = getPlayerName();
     //const date = new Date().toLocaleDateString();
 
-    const newQuestion = new Question(question, userName, [], 0, 0, 0);
+    const newQuestion = new Question(question, userName, getDateAndTime(), [], 0, 0, 0);
 
 
     try {
@@ -39,6 +47,47 @@ async function saveQuestion(question) {
     }
 }
 
+function getDaySuffix(day) {
+    if (day >= 11 && day <= 13) {
+        return 'th';
+    }
+    switch (day % 10) {
+        case 1:
+            return 'st';
+        case 2:
+            return 'nd';
+        case 3:
+            return 'rd';
+        default:
+            return 'th';
+    }
+}
+
+function formatHours(hours) {
+    const twelveHourFormat = hours % 12 || 12;
+    return twelveHourFormat < 10 ? `0${twelveHourFormat}` : twelveHourFormat;
+}
+
+function formatMinutes(minutes) {
+    return minutes < 10 ? `0${minutes}` : minutes;
+}
+
+function getDateAndTime() {
+    const date = new Date();
+    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const monthsOfYear = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const dayOfWeek = daysOfWeek[date.getDay()];
+    const month = monthsOfYear[date.getMonth()];
+    const dayOfMonth = date.getDate();
+    const year = date.getFullYear();
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const ampm = hours >= 12 ? 'pm' : 'am';
+    const dateString = `${dayOfWeek}, ${month} ${dayOfMonth}${getDaySuffix(dayOfMonth)} ${year} at ${formatHours(hours)}:${formatMinutes(minutes)}${ampm} est`;
+
+    return dateString;
+}
+
 
 class PostPage {
     constructor() {
@@ -48,6 +97,7 @@ class PostPage {
         const postedBy = document.querySelector('.posted-by');
         postedBy.textContent = "Posting as: " + getPlayerName();
 
+        getDateAndTime();
 
     }
 }

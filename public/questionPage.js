@@ -100,6 +100,7 @@ async function updateLocalStorage() {
 
         localStorage.setItem("qQuestion", item.question);
         localStorage.setItem("qUser", item.user);
+        localStorage.setItem("qTime", item.timePosted);
         localStorage.setItem("qComments", JSON.stringify(item.comments));
         localStorage.setItem("qUpVotes", item.numUpVotes);
         localStorage.setItem("qDownVotes", item.numDownVotes);
@@ -121,7 +122,8 @@ class QuestionPage {
 
 
         const authorNameElement = document.querySelector('.author-name');
-        authorNameElement.textContent = "Posted by: " + localStorage.getItem('qUser');
+        console.log(localStorage.getItem('qTime'));
+        authorNameElement.textContent = "Posted by " + localStorage.getItem('qUser') + " on " + localStorage.getItem('qTime');
 
 
         //Create the voting chart

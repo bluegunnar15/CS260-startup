@@ -1,8 +1,9 @@
 class Question {
 
-    constructor(question, user, comments, upVotes, downVotes, unsureVotes) {
+    constructor(question, user, timePosted, comments, upVotes, downVotes, unsureVotes) {
         this.question = question;
         this.user = user;
+        this.timePosted = timePosted;
         this.comments = comments;
         this.numUpVotes = upVotes;
         this.numDownVotes = downVotes;
