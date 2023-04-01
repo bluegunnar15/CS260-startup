@@ -44,55 +44,65 @@
         </nav>
     </header>
 
+
+
+
     <main class="container-fluid">
-        <div id="discussionBoard" class="demo-box">
-            <h1 id="discussionHeader" style="font-weight: bold;">The Opinion</h1>
-            <div class="author-name" style="font-size: large;">By: Default User</div>
-            <div class="question-name" id="indentedParagraph" style="font-size: x-large;">Default Question.
-            </div>
-            <h3 class="please-vote" id="discussionHeader" style="font-weight: bold;">Please Vote</h3>
-
-            <div class="voting-options" id="parentVote">
-                <button id="childVoteButton" onclick="addAgreeWrapper()"
-                    style="margin-left: 10px; margin-right: 10px; background-color: #4CBB17;" type="button"
-                    class="btn btn-primary">Agree</button>
-                <button id="childVoteButton" onclick="addDisagreeWrapper()"
-                    style="margin-left: 10px; margin-right: 10px; background-color: #EE4B2B;" type="button"
-                    class="btn btn-primary">Disagree</button>
-                <button id="childVoteButton" onclick="addUnsureWrapper()"
-                    style="margin-left: 10px; margin-right: 10px; background-color: #1F51FF;" type="button"
-                    class="btn btn-primary">Unsure</button>
-            </div>
-
-            <h3 class="voting-results" style="font-weight: bold;">Voting Results</h3>
-            <div id="parentResults" style="display: inline-block;">
-                <canvas id="pie-chart" height="75"></canvas>
-            </div>
-
-        </div>
-
-        <div id="sidebar" class="demo-box">
-            <h2 style="text-align: center; font-weight: bold;">Comments</h2>
-
-            <div id="commentBoard">
-                <div class="questionComments"></div>
-
-                <div class="card-footer" id="Tmp">
-                    <div class="d-flex flex-start w-100">
-                        <div class="form-outline w-100">
-                            <input type="text" id="newComment" placeholder="Type a Reply"
-                                style="width:275px; height: 50px; border-color: black;" />
-                        </div>
+        <div class="row">
+            <div class="col-md-8" style="margin-left: -1rem;">
+                <div class="demo-box" style="width: 100%; text-align: left;">
+                    <h6 class="author-name">By: Default User</h6>
+                    <div class="question-name" id="indentedParagraph" style="font-size: large;">Default Question.
                     </div>
-                    <div id="postComment">
-                        <button id="commentButton" type="button" class="btn btn-primary btn-sm">Post
-                            comment</button>
+                </div>
+                <div class="demo-box" style="width: 100%;">
+                    <h4 class="please-vote" style="font-weight: bold;">Please Vote</h4>
+                    <div class="voting-options" id="parentVote">
+                        <button id="childVoteButton" onclick="addAgreeWrapper()"
+                            style="margin-left: 10px; margin-right: 10px; background-color: #4CBB17;" type="button"
+                            class="btn btn-primary">Agree</button>
+                        <button id="childVoteButton" onclick="addDisagreeWrapper()"
+                            style="margin-left: 10px; margin-right: 10px; background-color: #EE4B2B;" type="button"
+                            class="btn btn-primary">Disagree</button>
+                        <button id="childVoteButton" onclick="addUnsureWrapper()"
+                            style="margin-left: 10px; margin-right: 10px; background-color: #1F51FF;" type="button"
+                            class="btn btn-primary">Unsure</button>
+                    </div>
+                </div>
+                <div class="demo-box" style="width: 100%;">
+                    <h4 class="voting-results" style="font-weight: bold;">Voting Results</h4>
+                    <div id="parentResults" style="display: inline-block;">
+                        <canvas id="pie-chart" height="65"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="demo-box" style="width: 100%;">
+                    <h4 style="text-align: center; font-weight: bold;">Comments</h4>
+                    <div id="commentBoard">
+                        <div class="questionComments"></div>
+                        <div class="card-footer" id="Tmp">
+                            <div class="d-flex flex-start w-100">
+                                <div class="form-outline w-100">
+                                    <input type="text" id="newComment" placeholder="Type a Reply"
+                                        style="width:275px; height: 50px; border-color: black;" />
+                                </div>
+                            </div>
+                            <div id="postComment" style="margin-top: 4%;">
+                                <button id="commentButton" type="button" class="btn btn-primary btn-sm">Post
+                                    comment</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </main>
+
+
+
+
+
 
     <test>
         <div id="bottomNav">
