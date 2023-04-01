@@ -12,7 +12,7 @@ postButton.addEventListener("click", async function () {
     try {
         await saveQuestion(newQ).then(window.location.href = "popularPage.html");
     }
-    catch {
+    catch (e) {
         // If there was an error then just track scores locally
         //this.updateScoresLocal(question);
         console.log("An error occured: " + e);
@@ -27,6 +27,7 @@ async function saveQuestion(question) {
 
     const newQuestion = new Question(question, userName, getDateAndTime(), [], 0, 0, 0);
 
+    broadcastEvent(localStorage.getItem('userName'), GameStartEvent, {});
 
     try {
         const response = await fetch('/api/postQuestion', {
@@ -40,7 +41,7 @@ async function saveQuestion(question) {
         // Store what the service gave us as the high scores
         //const questions = await response.json();
         //localStorage.setItem('allQuestions', JSON.stringify(questions));
-    } catch {
+    } catch (e) {
         // If there was an error then just track scores locally
         //this.updateScoresLocal(question);
         console.log("An error occured: " + e);
@@ -83,7 +84,7 @@ function getDateAndTime() {
     const hours = date.getHours();
     const minutes = date.getMinutes();
     const ampm = hours >= 12 ? 'pm' : 'am';
-    const dateString = `${dayOfWeek}, ${month} ${dayOfMonth}${getDaySuffix(dayOfMonth)} ${year} at ${formatHours(hours)}:${formatMinutes(minutes)}${ampm} est`;
+    const dateString = `${dayOfWeek}, ${month} ${dayOfMonth}${getDaySuffix(dayOfMonth)} ${year} at ${formatHours(hours)}:${formatMinutes(minutes)}${ampm} EST`;
 
     return dateString;
 }

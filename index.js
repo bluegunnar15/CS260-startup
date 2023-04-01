@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const express = require('express');
 const app = express();
 const DB = require('./database.js');
+const { PeerProxy } = require('./peerProxy.js');
 
 const authCookieName = 'token';
 
@@ -26,10 +27,6 @@ app.use(`/api`, apiRouter);
 app.use((_req, res) => {
   //res.header("Access-Control-Allow-Origin", "*");
   res.sendFile('index.html', { root: 'public' });
-});
-
-app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
 });
 
 // Get Popular Page
@@ -139,5 +136,11 @@ function setAuthCookie(res, authToken) {
     sameSite: 'strict',
   });
 }
+
+const httpService = app.listen(port, () => {
+  console.log(`Listening on port ${port}`);
+});
+
+new PeerProxy(httpService);
 
 
