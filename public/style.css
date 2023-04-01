@@ -68,6 +68,12 @@ footer {
     text-align: center;
 }
 
+.players {
+    flex: 1;
+    width: 100%;
+    padding: 1em;
+}
+
 #player-messages {
     padding-top: 0.25em;
     opacity: 0.7;

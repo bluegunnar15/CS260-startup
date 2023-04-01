@@ -8,10 +8,15 @@ commentButton.addEventListener("click", async function () {
     postCommentWrapper();
 });
 
+
+const socket = new SingletonSocket();
+
 async function postCommentWrapper() {
     const newCommentInput = document.querySelector("#newComment");
     const newComment = newCommentInput.value;
     newCommentInput.value = null;
+
+    socket.broadcastEvent(localStorage.getItem('userName'), NewComment, {});
 
     const j = {
         "question": localStorage.getItem('qQuestion'),
@@ -124,7 +129,6 @@ class QuestionPage {
         const authorNameElement = document.querySelector('.author-name');
         console.log(localStorage.getItem('qTime'));
         authorNameElement.textContent = "Posted by " + localStorage.getItem('qUser') + " on " + localStorage.getItem('qTime');
-
 
         //Create the voting chart
         this.drawChart();

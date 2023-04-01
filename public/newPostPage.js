@@ -1,3 +1,5 @@
+const socket = new SingletonSocket();
+
 
 function getPlayerName() {
     return localStorage.getItem('userName') ?? 'Mystery player';
@@ -23,11 +25,10 @@ postButton.addEventListener("click", async function () {
 
 async function saveQuestion(question) {
     const userName = getPlayerName();
-    //const date = new Date().toLocaleDateString();
 
     const newQuestion = new Question(question, userName, getDateAndTime(), [], 0, 0, 0);
 
-    broadcastEvent(localStorage.getItem('userName'), GameStartEvent, {});
+    socket.broadcastEvent(localStorage.getItem('userName'), NewPost, {});
 
     try {
         const response = await fetch('/api/postQuestion', {
