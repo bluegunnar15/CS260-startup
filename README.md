@@ -1,6 +1,10 @@
 # CS260-startup
 startup project for cs260
 
+Web Sockets are a game-changer when it comes to building real-time applications. I used them in my project to create sort of a  live chat feature that enabled my users to communicate with each other instantly when they post and comment.
+
+MongoDB was a great choice for my project as I was dealing with a lot of unstructured data- and had no choice from the class lol. I used it to store user profiles, chat messages, and voting data. One of the best things about MongoDB is its flexible schema. I was able to add new fields to my documents on the fly without having to worry about the database structure. This made it easy for me to iterate on my data model as I developed my product.
+
 Simon Notes from Websocket:
   * Make sure you install "ws"... will save countless minutes of wondering why its not working  
 
