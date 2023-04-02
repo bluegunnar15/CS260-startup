@@ -15,6 +15,9 @@
 
 </head>
 
+<div id="popup-container"></div>
+
+
 <body class="main">
     <header class="sticky-top">
         <nav class="navbar navbar-expand-lg" style="background-color: dodgerblue;">
@@ -50,10 +53,6 @@
         </nav>
     </header>
 
-    <div class="players">
-        <div id="player-messages"></div>
-    </div>
-
     <main style="text-align: center; font-size: larger;">
         <h1 id="tmp" style="font-weight: bold; padding-top: 2%;">Here is whats poppin!</h1>
         <h10>(Click on any question to read more)</h10>
@@ -75,6 +74,7 @@
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
 
+    <script src="socket.js"></script>
     <script src="Question.js"></script>
     <script src="popularPage.js"></script>
 </body>

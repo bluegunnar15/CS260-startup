@@ -68,6 +68,26 @@ footer {
     text-align: center;
 }
 
+#popup-container {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+}
+
+#popup-container::after {
+    content: "\1F4AC";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+}
+
+
 .players {
     flex: 1;
     width: 100%;

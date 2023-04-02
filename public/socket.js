@@ -27,11 +27,26 @@ class SingletonSocket {
             console.log("recieved");
             const msg = JSON.parse(await event.data.text());
             if (msg.type === NewComment) {
-                this.displayMsg('player', msg.from, `just commented!`);
+                //this.displayMsg('player', msg.from, `just commented!`);
+                this.showPopupMessage("User:" + msg.from + " just commented!", 4000); // display message for 3 seconds
             } else if (msg.type === NewPost) {
-                this.displayMsg('player', msg.from, `just posted!`);
+                //this.displayMsg('player', msg.from, `just posted!`);
+                this.showPopupMessage("User:" + msg.from + " just posted!", 4000); // display message for 3 seconds
             }
         };
+    }
+
+    showPopupMessage(message, duration) {
+        const container = document.getElementById('popup-container');
+
+        const messageEl = document.createElement('div');
+        messageEl.innerHTML = message;
+
+        container.appendChild(messageEl);
+
+        setTimeout(() => {
+            container.removeChild(messageEl);
+        }, duration);
     }
 
     displayMsg(cls, from, msg) {

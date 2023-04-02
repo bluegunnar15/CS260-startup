@@ -11,6 +11,7 @@ commentButton.addEventListener("click", async function () {
 
 const socket = new SingletonSocket();
 
+
 async function postCommentWrapper() {
     const newCommentInput = document.querySelector("#newComment");
     const newComment = newCommentInput.value;

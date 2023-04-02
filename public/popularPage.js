@@ -1,3 +1,5 @@
+const socket = new SingletonSocket();
+
 async function loadPopularQuestions() {
     let questions = [];
 
