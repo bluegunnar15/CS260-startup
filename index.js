@@ -94,7 +94,7 @@ apiRouter.post('/auth/login', async (req, res) => {
       return;
     }
   }
-  res.status(401).send({ msg: 'Unauthorized' });
+  res.status(401).send({ msg: 'Invalid' });
 });
 
 // DeleteAuth token if stored in cookie

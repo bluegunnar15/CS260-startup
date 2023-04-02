@@ -12,11 +12,12 @@ postButton.addEventListener("click", async function () {
     const newQ = questionElement.value;
 
     try {
-        await saveQuestion(newQ).then(window.location.href = "popularPage.html");
+        await saveQuestion(newQ);
+        if (newQ) {
+            window.location.href = "popularPage.html";
+        }
     }
     catch (e) {
-        // If there was an error then just track scores locally
-        //this.updateScoresLocal(question);
         console.log("An error occured: " + e);
     }
 
@@ -24,28 +25,37 @@ postButton.addEventListener("click", async function () {
 });
 
 async function saveQuestion(question) {
-    const userName = getPlayerName();
+    if (!question) {
+        const modalEl = document.querySelector('#msgModal');
+        modalEl.querySelector('.modal-body').textContent = '⚠ Error: Question field is empty.';
+        const msgModal = new bootstrap.Modal(modalEl, {});
+        msgModal.show();
+        return; // stop execution
+    }
+    else {
+        const userName = getPlayerName();
 
-    const newQuestion = new Question(question, userName, getDateAndTime(), [], 0, 0, 0);
+        const newQuestion = new Question(question, userName, getDateAndTime(), [], 0, 0, 0);
 
-    socket.broadcastEvent(localStorage.getItem('userName'), NewPost, {});
+        socket.broadcastEvent(localStorage.getItem('userName'), NewPost, {});
 
-    try {
-        const response = await fetch('/api/postQuestion', {
-            method: 'POST',
-            headers: { 'content-type': 'application/json' },
-            body: JSON.stringify(newQuestion),
-        });
+        try {
+            const response = await fetch('/api/postQuestion', {
+                method: 'POST',
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify(newQuestion),
+            });
 
 
 
-        // Store what the service gave us as the high scores
-        //const questions = await response.json();
-        //localStorage.setItem('allQuestions', JSON.stringify(questions));
-    } catch (e) {
-        // If there was an error then just track scores locally
-        //this.updateScoresLocal(question);
-        console.log("An error occured: " + e);
+            // Store what the service gave us as the high scores
+            //const questions = await response.json();
+            //localStorage.setItem('allQuestions', JSON.stringify(questions));
+        } catch (e) {
+            // If there was an error then just track scores locally
+            //this.updateScoresLocal(question);
+            console.log("An error occured: " + e);
+        }
     }
 }
 

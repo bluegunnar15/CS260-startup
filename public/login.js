@@ -29,6 +29,23 @@ async function createUser() {
 async function loginOrCreate(endpoint) {
     const userName = document.querySelector('#userName')?.value;
     const password = document.querySelector('#userPassword')?.value;
+
+    if (!userName) {
+        const modalEl = document.querySelector('#msgModal');
+        modalEl.querySelector('.modal-body').textContent = '⚠ Error: Username field is empty.';
+        const msgModal = new bootstrap.Modal(modalEl, {});
+        msgModal.show();
+        return; // stop execution
+    }
+
+    if (!password) {
+        const modalEl = document.querySelector('#msgModal');
+        modalEl.querySelector('.modal-body').textContent = '⚠ Error: Password field is empty.';
+        const msgModal = new bootstrap.Modal(modalEl, {});
+        msgModal.show();
+        return; // stop execution
+    }
+
     const response = await fetch(endpoint, {
         method: 'post',
         body: JSON.stringify({ email: userName, password: password }),
