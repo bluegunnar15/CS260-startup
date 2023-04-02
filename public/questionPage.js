@@ -150,12 +150,12 @@ class QuestionPage {
             votingBox.removeChild(votingBox.firstChild);
         }
 
-        pleaseVote.textContent = "Thank you for voting- Here are the numbers";
+        pleaseVote.textContent = "Thank you for voting.";
         votingResults.textContent = "";//"Agree: " + this.numUpVotes + " Disagree " + this.numDownVotes + " Unsure: " + this.numUnsureVotes;
 
         const child = document.createElement('div');
         child.style = "";
-        const test = "<h5 style =\"text-align: center; \"> " + localStorage.getItem('qUpVotes') + " people agree, " + localStorage.getItem('qDownVotes') + " people disagree, and " + localStorage.getItem('qUnsureVotes') + " people are unsure. </h5>";
+        const test = "<h5 style =\"text-align: center; \"> " + localStorage.getItem('qUpVotes') + " people agree. " + localStorage.getItem('qDownVotes') + " people disagree. " + localStorage.getItem('qUnsureVotes') + " people are unsure. </h5>";
 
         child.innerHTML = test;
 

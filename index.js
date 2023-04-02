@@ -144,3 +144,12 @@ const httpService = app.listen(port, () => {
 new PeerProxy(httpService);
 
 
+apiRouter.get('/joke', (req, res) => {
+  request('https://icanhazdadjoke.com/', { headers: { 'Accept': 'text/plain' } }, (error, response, body) => {
+    if (!error && response.statusCode == 200) {
+      res.send(body);
+    } else {
+      res.status(500).send('Error getting joke');
+    }
+  });
+});
