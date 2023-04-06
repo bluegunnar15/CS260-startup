@@ -1,4 +1,18 @@
 # CS260-startup
+
+Learned from simon React: 
+  * To convert Simon to a React application, you need to reorganize the code, create a template React application, clean up the template code, move the template files to Simon, convert to React Bootstrap, populate App.jsx, create view components, create the router, convert to React components, and set up debugging.
+  * Reorganizing Simon involves putting the service code in a service directory and the React code in the src directory, and then testing that the service is still working.
+  * Moving the template files to Simon involves copying over the generated files from the template-react directory to the simon repository directory, and then deleting the template-react directory.
+  * Converting to React Bootstrap involves installing the React Bootstrap NPM package, importing the CSS from the package, and then converting the modal dialog and button implementations to use the React Bootstrap components.
+  * Populating App.jsx involves moving the header and footer HTML into the render function for the app, renaming the class attribute to be className, and making other modifications to the code.
+  * Creating view components involves creating new React components to represent different parts of the user interface, such as the header, footer, and game board.
+  * Creating the router involves using the React Router package to set up navigation between different parts of the application.
+  * Converting to React components involves refactoring existing code to take advantage of React-specific functionality and to create sub-components.
+  * Setting up debugging involves using the React Developer Tools browser extension to inspect and debug the React components in the application.
+
+
+
 startup project for cs260
 
 Web Sockets are a game-changer when it comes to building real-time applications. I used them in my project to create sort of a  live chat feature that enabled my users to communicate with each other instantly when they post and comment.
